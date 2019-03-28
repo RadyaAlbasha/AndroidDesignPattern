@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShowCountries</string>
+    <string name="next"><![CDATA[>]]></string>
+    <string name="prev"><![CDATA[<]]></string>
+</resources>
