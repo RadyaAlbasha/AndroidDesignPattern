@@ -22,18 +22,14 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
     TextView txtCountry;
     TextView txtPopulation;
     ImageView imgFlag;
-    Handler handler;
     static int index;
     String urlFlag;
     List<Country> myCountryList;
-    JsonConniction jsonConniction;
-    MyAsyncTask myAsyncTask;
     NetworkServiceInterface networkService ;
 
     boolean downloadDataIsDoneFlag;
 
     public MainActivity() {
-        this.index = 0;
         downloadDataIsDoneFlag = false;
     }
 
@@ -45,8 +41,7 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
         txtCountry = (TextView) findViewById(R.id.textViewCountry);
         txtPopulation = (TextView) findViewById(R.id.textViewPopulation);
         imgFlag = (ImageView) findViewById(R.id.imageViewFlag);
-        networkService = new NetworkServiceImp(MainActivity.this , index , imgFlag);
-
+        networkService = new NetworkServiceImp(MainActivity.this);
     }
 
     public void getNextImg(View view) {
@@ -60,7 +55,7 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
             txtCountry.setText(myCountryList.get(index).getCountry());
             txtPopulation.setText(myCountryList.get(index).getPopulation());
             urlFlag=myCountryList.get(index).getFlag();
-            networkService.downloadImageFlag(MainActivity.this , imgFlag , urlFlag);
+            imgFlag.setImageBitmap(myCountryList.get(index).getImgFlag());
         }
         else
         {
@@ -79,7 +74,7 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
             txtCountry.setText(myCountryList.get(index).getCountry());
             txtPopulation.setText(myCountryList.get(index).getPopulation());
             urlFlag=myCountryList.get(index).getFlag();
-             networkService.downloadImageFlag(MainActivity.this , imgFlag , urlFlag);
+            imgFlag.setImageBitmap(myCountryList.get(index).getImgFlag());
         }
        else
         {
@@ -93,6 +88,7 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
         txtRank.setText(myCountryList.get(index).getRank());
         txtCountry.setText(myCountryList.get(index).getCountry());
         txtPopulation.setText(myCountryList.get(index).getPopulation());
+        imgFlag.setImageBitmap(myCountryList.get(index).getImgFlag());
         downloadDataIsDoneFlag =true;
     }
 }

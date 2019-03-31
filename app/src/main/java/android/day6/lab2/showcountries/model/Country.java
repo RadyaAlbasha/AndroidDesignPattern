@@ -1,10 +1,13 @@
 package android.day6.lab2.showcountries.model;
 
+import android.graphics.Bitmap;
+
 public class Country {
     private String rank;
     private String country;
     private String population;
     private String flag;
+    private Bitmap imgFlag;
 
     public Country() {
 
@@ -47,5 +50,13 @@ public class Country {
 
     public void setFlag(String flag) {
         this.flag = flag;
+    }
+
+    public Bitmap getImgFlag() {
+        return imgFlag;
+    }
+
+    public void setImgFlag(Bitmap imgFlag) {
+        this.imgFlag = imgFlag;
     }
 }

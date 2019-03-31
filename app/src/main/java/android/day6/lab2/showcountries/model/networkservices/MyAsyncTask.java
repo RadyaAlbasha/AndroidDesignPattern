@@ -16,11 +16,11 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MyAsyncTask extends AsyncTask<String,Void, Bitmap> {
 
-    Context context;
-    ImageView imgFlag;
-    public MyAsyncTask(Context _context , ImageView _imgFlag) {
-        this.context = _context;
-        imgFlag = _imgFlag;
+    int index;
+    NetworkServiceInterface networlInterface;
+    public MyAsyncTask(NetworkServiceInterface _networlInterface, int _index) {
+        networlInterface = _networlInterface;
+        index = _index;
     }
 
     @Override
@@ -28,6 +28,7 @@ public class MyAsyncTask extends AsyncTask<String,Void, Bitmap> {
         Bitmap result = null;
         try {
             result = download(uris[0]);
+            networlInterface.downloadImageFlagIsDone(index,result);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,8 +38,10 @@ public class MyAsyncTask extends AsyncTask<String,Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
-        imgFlag.setImageBitmap(bitmap);
-        Toast.makeText(context, "Download  Sucessfuly", Toast.LENGTH_SHORT).show();
+
+        //imgFlag.setImageBitmap(bitmap);
+
+        //Toast.makeText(context, "Download  Sucessfuly", Toast.LENGTH_SHORT).show();
     }
 
     public Bitmap download(String url)throws IOException{
