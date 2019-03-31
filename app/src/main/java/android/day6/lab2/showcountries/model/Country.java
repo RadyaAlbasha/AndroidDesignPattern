@@ -1,4 +1,4 @@
-package android.day6.lab2.showcountries;
+package android.day6.lab2.showcountries.model;
 
 public class Country {
     private String rank;
