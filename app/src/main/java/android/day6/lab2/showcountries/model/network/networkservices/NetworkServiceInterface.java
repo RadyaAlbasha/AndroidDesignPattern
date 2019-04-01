@@ -1,9 +1,7 @@
-package android.day6.lab2.showcountries.model.networkservices;
+package android.day6.lab2.showcountries.model.network.networkservices;
 
-import android.content.Context;
 import android.day6.lab2.showcountries.model.Country;
 import android.graphics.Bitmap;
-import android.widget.ImageView;
 
 import java.util.List;
 

@@ -2,8 +2,8 @@ package android.day6.lab2.showcountries.screens.mainscreen;
 
 import android.content.Context;
 import android.day6.lab2.showcountries.model.Country;
-import android.day6.lab2.showcountries.model.networkservices.NetworkServiceImp;
-import android.day6.lab2.showcountries.model.networkservices.NetworkServiceInterface;
+import android.day6.lab2.showcountries.model.network.networkservices.NetworkServiceImp;
+import android.day6.lab2.showcountries.model.network.networkservices.NetworkServiceInterface;
 import android.widget.Toast;
 
 import java.util.List;

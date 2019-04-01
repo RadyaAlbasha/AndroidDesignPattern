@@ -1,4 +1,4 @@
-package android.day6.lab2.showcountries.model.networkservices;
+package android.day6.lab2.showcountries.model.network.networkservices;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

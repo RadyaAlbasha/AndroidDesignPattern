@@ -1,14 +1,11 @@
-package android.day6.lab2.showcountries.model.networkservices;
+package android.day6.lab2.showcountries.model.network.networkservices;
 
 import android.content.Context;
 import android.day6.lab2.showcountries.model.Country;
-import android.day6.lab2.showcountries.screens.mainscreen.MainActivity;
 import android.day6.lab2.showcountries.screens.mainscreen.MainContract;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.List;

@@ -2,19 +2,11 @@ package android.day6.lab2.showcountries.screens.mainscreen;
 
 import android.day6.lab2.showcountries.R;
 import android.day6.lab2.showcountries.model.Country;
-import android.day6.lab2.showcountries.model.networkservices.JsonConniction;
-import android.day6.lab2.showcountries.model.networkservices.MyAsyncTask;
-import android.day6.lab2.showcountries.model.networkservices.NetworkServiceImp;
-import android.day6.lab2.showcountries.model.networkservices.NetworkServiceInterface;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity  implements MainContract.MainView{
 
