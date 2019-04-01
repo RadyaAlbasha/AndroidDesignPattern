@@ -21,11 +21,11 @@ public class NetworkServiceImp implements NetworkServiceInterface{
     Context context;
     String urlFlag;
     //Bitmap imgFlagBitmap;
-    MainContract.MainView activity;
-    public NetworkServiceImp(MainContract.MainView _activity) {
+    MainContract.MainPresenter presenter;
+    public NetworkServiceImp(Context _context ,MainContract.MainPresenter _presenter) {
         jsonConniction=new JsonConniction(this);
-        context =(Context)_activity;
-        activity = _activity;
+        context =_context;
+        presenter = _presenter;
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -41,7 +41,7 @@ public class NetworkServiceImp implements NetworkServiceInterface{
                     downloadImageFlag(NetworkServiceImp.this, urlFlag,i);
                 }
                 Toast.makeText(context, "Download  Sucessfuly", Toast.LENGTH_SHORT).show();
-                activity.downloadDataIsDone(myCountryList);
+                presenter.downloadDataIsDone(myCountryList);
                 //myAsyncTask = new MyAsyncTask(context,imgFlag);
                 //myAsyncTask.execute(urlFlag);
             }

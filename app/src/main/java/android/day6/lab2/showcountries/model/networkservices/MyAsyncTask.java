@@ -1,12 +1,8 @@
 package android.day6.lab2.showcountries.model.networkservices;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;

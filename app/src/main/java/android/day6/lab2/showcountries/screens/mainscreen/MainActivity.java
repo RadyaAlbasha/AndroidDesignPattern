@@ -23,14 +23,10 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
     TextView txtPopulation;
     ImageView imgFlag;
     static int index;
-    String urlFlag;
-    List<Country> myCountryList;
     NetworkServiceInterface networkService ;
-
-    boolean downloadDataIsDoneFlag;
+    MainContract.MainPresenter presenter;
 
     public MainActivity() {
-        downloadDataIsDoneFlag = false;
     }
 
     @Override
@@ -41,54 +37,25 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
         txtCountry = (TextView) findViewById(R.id.textViewCountry);
         txtPopulation = (TextView) findViewById(R.id.textViewPopulation);
         imgFlag = (ImageView) findViewById(R.id.imageViewFlag);
-        networkService = new NetworkServiceImp(MainActivity.this);
+        presenter = new MainPresenterImpl(this);
+        networkService = new NetworkServiceImp(MainActivity.this,presenter);
     }
 
     public void getNextImg(View view) {
-        if(downloadDataIsDoneFlag)
-        {
-            if(index<myCountryList.size()-1)
-                index++;
-            else
-                index=0;
-            txtRank.setText(myCountryList.get(index).getRank());
-            txtCountry.setText(myCountryList.get(index).getCountry());
-            txtPopulation.setText(myCountryList.get(index).getPopulation());
-            urlFlag=myCountryList.get(index).getFlag();
-            imgFlag.setImageBitmap(myCountryList.get(index).getImgFlag());
-        }
-        else
-        {
-            Toast.makeText(this, "Data not yet loaded", Toast.LENGTH_SHORT).show();
-        }
+        index = presenter.getNextCountry(index);
+
     }
 
     public void getPrevImg(View view) {
-        if(downloadDataIsDoneFlag)
-        {
-            if(index>0)
-                index--;
-            else
-                index=myCountryList.size()-1;
-            txtRank.setText(myCountryList.get(index).getRank());
-            txtCountry.setText(myCountryList.get(index).getCountry());
-            txtPopulation.setText(myCountryList.get(index).getPopulation());
-            urlFlag=myCountryList.get(index).getFlag();
-            imgFlag.setImageBitmap(myCountryList.get(index).getImgFlag());
-        }
-       else
-        {
-            Toast.makeText(this, "Data not yet loaded", Toast.LENGTH_SHORT).show();
-        }
+        index = presenter.getPreviousCountry(index);
     }
 
     @Override
-    public void downloadDataIsDone(List<Country> countriesList) {
-        myCountryList = countriesList;
-        txtRank.setText(myCountryList.get(index).getRank());
-        txtCountry.setText(myCountryList.get(index).getCountry());
-        txtPopulation.setText(myCountryList.get(index).getPopulation());
-        imgFlag.setImageBitmap(myCountryList.get(index).getImgFlag());
-        downloadDataIsDoneFlag =true;
+    public void showCountry(Country country) {
+        txtRank.setText(country.getRank());
+        txtCountry.setText(country.getCountry());
+        txtPopulation.setText(country.getPopulation());
+        imgFlag.setImageBitmap(country.getImgFlag());
     }
+
 }

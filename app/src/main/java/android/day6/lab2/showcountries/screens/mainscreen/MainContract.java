@@ -6,11 +6,13 @@ import java.util.List;
 
 public interface MainContract {
     interface MainView {
-        void downloadDataIsDone(List<Country> countriesList);
+        void showCountry(Country country);
 
     }
 
     interface MainPresenter {
-
+        void downloadDataIsDone(List<Country> countriesList);
+        int getPreviousCountry(int currentIndex);
+        int getNextCountry(int currentIndex);
     }
 }
