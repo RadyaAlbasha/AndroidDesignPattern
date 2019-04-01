@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
     TextView txtPopulation;
     ImageView imgFlag;
     static int index;
-    NetworkServiceInterface networkService ;
     MainContract.MainPresenter presenter;
 
     public MainActivity() {
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity  implements MainContract.Mai
         txtPopulation = (TextView) findViewById(R.id.textViewPopulation);
         imgFlag = (ImageView) findViewById(R.id.imageViewFlag);
         presenter = new MainPresenterImpl(this);
-        networkService = new NetworkServiceImp(MainActivity.this,presenter);
+        presenter.downloadCountriesData();
     }
 
     public void getNextImg(View view) {

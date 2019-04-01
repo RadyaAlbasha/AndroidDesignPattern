@@ -11,6 +11,7 @@ public interface MainContract {
     }
 
     interface MainPresenter {
+        void downloadCountriesData();
         void downloadDataIsDone(List<Country> countriesList);
         int getPreviousCountry(int currentIndex);
         int getNextCountry(int currentIndex);
